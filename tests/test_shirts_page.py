@@ -41,7 +41,7 @@ def test_shirts_page_titles(setup_driver):
 
     # STEP 1: Hover over the CATEGORIES tab.
     categories_xpath = '//*[@id="menu-item-123"]/a'  # XPath do zakładki CATEGORIES
-    categories_element = wait.until(EC.visibility_of_element_located((By.XPATH, categories_xpath)))
+    wait.until(EC.visibility_of_element_located((By.XPATH, categories_xpath)))
     time.sleep(5)
 
     # Create an ActionChains object
@@ -52,17 +52,17 @@ def test_shirts_page_titles(setup_driver):
 
     # STEP 2: Click SHIRTS from the drop-down list
     shirts_link_xpath = '//*[@id="menu-item-125"]/a'  # XPath SHIRTS
-    shirts_element = wait.until(EC.element_to_be_clickable((By.XPATH, shirts_link_xpath)))
+    wait.until(EC.element_to_be_clickable((By.XPATH, shirts_link_xpath)))
     shirts_element.click()
 
     # STEP2A:Selecting the item in question
     shirtdetails_xpath='//*[@id="page"]/div/div/div[2]/div/ul/li[5]/a[1]'
-    shirtdetails_element=wait.until(EC.element_to_be_clickable((By.XPATH,shirtdetails_xpath)))
+    wait.until(EC.element_to_be_clickable((By.XPATH,shirtdetails_xpath)))
     base_page.click_element(By.XPATH,shirtdetails_xpath)
 
     # STEP 3: Return to the SHIRT section
     shirt_section_xpath='/html/body/div[1]/div/div/div/div/div/div[2]/div[2]/span[1]/a[1]'
-    shirt_section=wait.until(EC.element_to_be_clickable((By.XPATH,shirt_section_xpath)))
+    wait.until(EC.element_to_be_clickable((By.XPATH,shirt_section_xpath)))
     base_page.click_element(By.XPATH,shirt_section_xpath)
 
 
